@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const User = require('../models/User.js')
-const {check, validationResults} = require(express-validator)
+const {check, validationResults} = require('express-validator')
 
 //GET ALL USERS
 router.get('/', async (req, res) => {
@@ -23,3 +23,6 @@ router.get('/:id', async (req, res, next) => {
 router.get('/:')
 
 //PUT SHOW IF USER HAS WATCHED IT
+
+
+module.exports = router

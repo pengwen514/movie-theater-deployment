@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const Show = require('../models/Show.js')
-const {check, validationResults} = require(express-validator)
+const {check, validationResults} = require('express-validator')
 
 //GET ALL SHOWS
 router.get('/', async (req, res) => {
@@ -11,15 +11,15 @@ router.get('/', async (req, res) => {
 //GET ONE SHOW
 router.get('/:id', async (req, res, next) => {
     try{
-        const show = await Show.findByPk({where: {id: req.params.id}})
-        res.sendStatus(200);
+        const show = await Show.findByPk(req.params.id)
+        res.send(show);
     }
     catch(error){
         next(error)
     }
 })
 //GET SHOWS OF A GENRE
-router.get('/:genre', async (req, res, next) => {
+router.get('/genres/:genre', async (req, res, next) => {
     try{
         const shows = await Show.findAll({where: {genre: req.params.genre}})
         res.send(shows);
